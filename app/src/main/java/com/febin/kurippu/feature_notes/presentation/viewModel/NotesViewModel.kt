@@ -27,8 +27,9 @@ class NotesViewModel @Inject constructor(
     private var recentlyDeletedNote: Note? = null
     private var getNotesJob: Job? = null
 
+    // Define Initial state and order for showing Default notes list.
     init {
-        getNotes(NoteOrder.Date(OrderType.Descending))
+        getNotes(NoteOrder.Title(OrderType.Ascending))
     }
 
     fun onEvent(event: NotesEvents) {

@@ -6,7 +6,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusState
@@ -37,10 +39,14 @@ fun TextInputFieldBasic(
             onValueChange = onValueChange,
             singleLine = singleLine,
             textStyle = textStyle,
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedBorderColor = Color.White,
+                unfocusedBorderColor = Color.White,
+                focusedTextColor = Color.Black,
+                unfocusedTextColor = Color.DarkGray
+            ),
             modifier = Modifier
                 .fillMaxWidth()
-
-
                 .onFocusChanged { onFocusChange(it) }
         )
         if (isHintVisible) {
@@ -49,7 +55,7 @@ fun TextInputFieldBasic(
                 modifier = Modifier
                     .padding(10.dp),
                 style = textStyle,
-                color = Color.White
+                color = Color.DarkGray
             )
         }
     }
