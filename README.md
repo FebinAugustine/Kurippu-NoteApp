@@ -12,5 +12,5 @@ This is a Note App repository. This will help you learn Room DB implementation, 
 
 
 # Also See:
-    Android Kotlin Jetpack Compose Material 3 Components Repository: https://github.com/FebinAugustine/AndroidJetpackComposeComponents
+Android Kotlin Jetpack Compose Material 3 Components Repository: https://github.com/FebinAugustine/AndroidJetpackComposeComponents
 
