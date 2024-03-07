@@ -34,7 +34,6 @@ fun NoteItem(
     note: Note,
     modifier: Modifier = Modifier,
     onDeleteClick: () -> Unit,
-
     cornerRadius: Dp = 10.dp,
     cutCornerSize: Dp = 30.dp,
 ) {
@@ -72,12 +71,12 @@ fun NoteItem(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(16.dp)
-                .padding(end = 32.dp)
+//                .padding(end = 32.dp)
         ) {
             Text(
                 text = note.title,
                 style = MaterialTheme.typography.headlineMedium,
-                color = MaterialTheme.colorScheme.onSurface,
+                color = Color.DarkGray,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
@@ -85,7 +84,7 @@ fun NoteItem(
             Text(
                 text = note.content,
                 style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurface,
+                color = Color.DarkGray,
                 maxLines = 10,
                 overflow = TextOverflow.Ellipsis
             )
@@ -97,9 +96,10 @@ fun NoteItem(
                 Icon(
                     imageVector = Icons.Default.Delete,
                     contentDescription = "Delete note",
-                    tint = MaterialTheme.colorScheme.onSurface
+                    tint = Color.DarkGray
                 )
             }
+
         }
     }
 }

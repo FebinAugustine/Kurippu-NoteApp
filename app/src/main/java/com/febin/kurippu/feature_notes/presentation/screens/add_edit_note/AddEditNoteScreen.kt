@@ -145,6 +145,7 @@ fun AddEditNoteScreen(
             TextInputFieldBasic(
                 text = titleState.text,
                 hint = titleState.hint,
+                label = "",
                 onValueChange = {
                     viewModel.onEvent(AddEditNoteEvent.EnteredTitle(it))
                 },
@@ -159,6 +160,7 @@ fun AddEditNoteScreen(
             TextInputFieldBasic(
                 text = contentState.text,
                 hint = contentState.hint,
+                label = "",
                 onValueChange = {
                     viewModel.onEvent(AddEditNoteEvent.EnteredContent(it))
                 },
