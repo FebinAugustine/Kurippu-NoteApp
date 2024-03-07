@@ -16,6 +16,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
@@ -28,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.febin.kurippu.feature_notes.presentation.events.NotesEvents
+import com.febin.kurippu.feature_notes.presentation.navigation.Screen
 import com.febin.kurippu.feature_notes.presentation.screens.notes.components.NoteItem
 import com.febin.kurippu.feature_notes.presentation.screens.notes.components.OrderSection
 import com.febin.kurippu.feature_notes.presentation.viewModel.NotesViewModel
@@ -46,7 +48,7 @@ fun NotesScreen(
         floatingActionButton = @androidx.compose.runtime.Composable {
             FloatingActionButton(
                 onClick = {
-                    navController.navigate("add_edit_note_screen")
+                    navController.navigate(Screen.AddEditNoteScreen.route)
                 },
                 containerColor = MaterialTheme.colorScheme.primary,
                 contentColor = MaterialTheme.colorScheme.onPrimary
@@ -57,7 +59,9 @@ fun NotesScreen(
                 )
             }
         },
-        snackbarHost = snackbarHostState
+        snackbarHost = {
+            SnackbarHost(hostState = snackbarHostState)
+        },
     ) {
         Column(
             modifier = Modifier
@@ -112,7 +116,8 @@ fun NotesScreen(
                             .padding(vertical = 16.dp)
                             .clickable {
                                        navController.navigate(
-                                           "add_edit_note_screen?noteId=${state.notes[note].id}&noteColor=${state.notes[note].color}"
+                                           Screen.AddEditNoteScreen.route +
+                                                   "?noteId=${state.notes[note].id}&noteColor=${state.notes[note].color}"
                                        )
                             },
                         onDeleteClick = {

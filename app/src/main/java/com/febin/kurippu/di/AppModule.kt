@@ -7,6 +7,7 @@ import com.febin.kurippu.feature_notes.data.repository.NoteRepositoryImpl
 import com.febin.kurippu.feature_notes.domain.repository.NotesRepository
 import com.febin.kurippu.feature_notes.domain.use_case.AddNoteUseCase
 import com.febin.kurippu.feature_notes.domain.use_case.DeleteNoteUseCase
+import com.febin.kurippu.feature_notes.domain.use_case.GetNoteUseCase
 import com.febin.kurippu.feature_notes.domain.use_case.GetNotesUseCase
 import com.febin.kurippu.feature_notes.domain.use_case.NoteUseCases
 import dagger.Module
@@ -46,7 +47,7 @@ object AppModule {
             getNotes = GetNotesUseCase(repository),
             deleteNote = DeleteNoteUseCase(repository),
             addNote = AddNoteUseCase(repository),
-//            getNote = GetNote(repository)
+            getNote = GetNoteUseCase(repository)
         )
     }
 }
